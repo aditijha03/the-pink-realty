@@ -52,7 +52,9 @@ if (process.env.NODE_ENV === 'production') {
 // Middleware
 app.use(helmet());
 app.use(cors({
-  origin: process.env.NODE_ENV === 'production' ? process.env.CLIENT_ORIGIN : (process.env.CLIENT_ORIGIN || 'http://localhost:5173'),
+  origin: process.env.NODE_ENV === 'production' 
+    ? process.env.CLIENT_ORIGIN 
+    : [process.env.CLIENT_ORIGIN || 'http://localhost:5173', 'http://localhost:5174', 'http://127.0.0.1:5173', 'http://127.0.0.1:5174'],
   credentials: true
 }));
 app.use(express.json());
@@ -84,8 +86,23 @@ const csrfProtection = (req, res, next) => {
       return res.status(403).json({ success: false, message: 'CSRF validation failed: Missing or invalid X-Requested-With header' });
     }
     const origin = req.headers.origin || req.headers.referer;
-    const clientOrigin = process.env.NODE_ENV === 'production' ? process.env.CLIENT_ORIGIN : (process.env.CLIENT_ORIGIN || 'http://localhost:5173');
-    if (!origin || !origin.startsWith(clientOrigin)) {
+    
+    let allowedOrigins = [];
+    if (process.env.NODE_ENV === 'production') {
+      allowedOrigins = [process.env.CLIENT_ORIGIN];
+    } else {
+      allowedOrigins = [
+        process.env.CLIENT_ORIGIN,
+        'http://localhost:5173',
+        'http://localhost:5174',
+        'http://127.0.0.1:5173',
+        'http://127.0.0.1:5174'
+      ].filter(Boolean);
+    }
+    
+    const isOriginAllowed = allowedOrigins.some(allowed => origin && origin.startsWith(allowed));
+
+    if (!isOriginAllowed) {
       return res.status(403).json({ success: false, message: 'CSRF validation failed: Invalid Origin/Referer' });
     }
   }

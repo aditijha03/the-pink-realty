@@ -34,18 +34,22 @@ export default function Properties() {
     }
   };
 
-  const handleToggleVisibility = async (id, currentStatus) => {
-    // Optimistic update
-    setProperties(prev => prev.map(p => p._id === id ? { ...p, showOnWebsite: !currentStatus } : p));
+  const handleTogglePremium = async (id, currentStatus) => {
+    // Optimistic update: if turning on, turn off all others
+    setProperties(prev => prev.map(p => {
+      if (p._id === id) return { ...p, isPremium: !currentStatus };
+      if (!currentStatus) return { ...p, isPremium: false }; // turning this one on means others go off
+      return p;
+    }));
     try {
       await apiFetch(`/admin/properties/${id}`, {
         method: 'PUT',
-        body: JSON.stringify({ showOnWebsite: !currentStatus })
+        body: JSON.stringify({ isPremium: !currentStatus })
       });
     } catch (error) {
-      // Revert on error
-      setProperties(prev => prev.map(p => p._id === id ? { ...p, showOnWebsite: currentStatus } : p));
-      alert('Failed to update visibility');
+      // Fetch again to revert to actual state on error
+      fetchProperties();
+      alert('Failed to update premium status');
     }
   };
 
@@ -102,7 +106,7 @@ export default function Properties() {
                 <th className="py-4 px-6 text-xs font-bold text-gray-400 uppercase tracking-wider">Type</th>
                 <th className="py-4 px-6 text-xs font-bold text-gray-400 uppercase tracking-wider">Price</th>
                 <th className="py-4 px-6 text-xs font-bold text-gray-400 uppercase tracking-wider text-center">Status</th>
-                <th className="py-4 px-6 text-xs font-bold text-gray-400 uppercase tracking-wider text-center">Show on Website</th>
+                <th className="py-4 px-6 text-xs font-bold text-gray-400 uppercase tracking-wider text-center">Premium Project</th>
                 <th className="py-4 px-6 text-xs font-bold text-gray-400 uppercase tracking-wider text-center">Actions</th>
               </tr>
             </thead>
@@ -153,10 +157,10 @@ export default function Properties() {
                     </td>
                     <td className="py-4 px-6 text-center">
                       <button 
-                        onClick={() => handleToggleVisibility(property._id, property.showOnWebsite)}
-                        className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${property.showOnWebsite ? 'bg-[#0B132B] dark:bg-[#D6246E]' : 'bg-gray-200 dark:bg-white/20'}`}
+                        onClick={() => handleTogglePremium(property._id, property.isPremium)}
+                        className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${property.isPremium ? 'bg-[#0B132B] dark:bg-[#D6246E]' : 'bg-gray-200 dark:bg-white/20'}`}
                       >
-                        <span className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${property.showOnWebsite ? 'translate-x-6' : 'translate-x-1'}`} />
+                        <span className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${property.isPremium ? 'translate-x-6' : 'translate-x-1'}`} />
                       </button>
                     </td>
                     <td className="py-4 px-6">

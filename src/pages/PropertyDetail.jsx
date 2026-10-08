@@ -199,38 +199,23 @@ export default function PropertyDetail() {
                     )}
                   </div>
                   <div className="absolute top-4 right-4 flex gap-2">
-                    <button className="bg-surface-elevated/90 backdrop-blur p-2.5 rounded-full shadow-sm text-text-muted hover:text-pink transition-colors border border-border">
-                      <Share2 className="w-5 h-5" />
-                    </button>
                     <button 
-                      onClick={(e) => {
-                        e.preventDefault();
-                        if (!isWishlisted) {
-                          const el = e.currentTarget;
-                          const rect = el.getBoundingClientRect();
-                          const burst = document.createElement('div');
-                          burst.className = 'fixed pointer-events-none z-[100]';
-                          burst.style.left = `${rect.left + rect.width / 2}px`;
-                          burst.style.top = `${rect.top + rect.height / 2}px`;
-                          document.body.appendChild(burst);
-                          
-                          for (let i = 0; i < 6; i++) {
-                            const particle = document.createElement('div');
-                            particle.className = 'absolute animate-particle-burst';
-                            particle.style.setProperty('--tx', `${(Math.random() - 0.5) * 70}px`);
-                            particle.style.setProperty('--ty', `${-30 - Math.random() * 50}px`);
-                            particle.style.animationDelay = `${Math.random() * 0.15}s`;
-                            burst.appendChild(particle);
-                          }
-                          
-                          setTimeout(() => document.body.removeChild(burst), 1200);
+                      onClick={() => {
+                        if (navigator.share) {
+                          navigator.share({
+                            title: property.title,
+                            url: window.location.href,
+                          }).catch(console.error);
+                        } else {
+                          navigator.clipboard.writeText(window.location.href);
+                          alert('Link copied to clipboard!');
                         }
-                        setIsWishlisted(!isWishlisted);
                       }}
                       className="bg-surface-elevated/90 backdrop-blur p-2.5 rounded-full shadow-sm text-text-muted hover:text-pink transition-colors border border-border"
                     >
-                      <Heart className={`w-5 h-5 ${isWishlisted ? 'fill-pink text-pink' : ''}`} />
+                      <Share2 className="w-5 h-5" />
                     </button>
+
                   </div>
                 </div>
               </div>

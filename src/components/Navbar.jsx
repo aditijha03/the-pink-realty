@@ -143,7 +143,7 @@ export default function Navbar() {
         className={`fixed top-0 right-0 bottom-0 w-full max-w-sm bg-surface z-40 transition-transform duration-300 lg:hidden flex flex-col pt-24 px-6 ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full invisible'
         }`}
-        {...(!isMobileMenuOpen ? { inert: "true" } : {})}
+        {...(!isMobileMenuOpen ? { inert: true } : {})}
         aria-hidden={!isMobileMenuOpen}
       >
         <nav className="flex flex-col gap-6 text-xl font-heading text-text">

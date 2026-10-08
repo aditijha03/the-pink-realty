@@ -57,6 +57,9 @@ router.get('/dashboard', async (req, res) => {
 
 router.post('/properties', async (req, res) => {
   try {
+    if (req.body.isPremium === true) {
+      await Property.updateMany({}, { isPremium: false });
+    }
     const property = new Property(req.body);
     const saved = await property.save();
     res.status(201).json({ success: true, data: saved });
@@ -76,6 +79,9 @@ router.get('/properties', async (req, res) => {
 
 router.put('/properties/:id', async (req, res) => {
   try {
+    if (req.body.isPremium === true) {
+      await Property.updateMany({ _id: { $ne: req.params.id } }, { isPremium: false });
+    }
     const property = await Property.findByIdAndUpdate(req.params.id, req.body, { new: true });
     if (!property) return res.status(404).json({ success: false, message: 'Property not found' });
     res.json({ success: true, data: property });
