@@ -100,7 +100,7 @@ export default function Footer() {
         {/* Bottom */}
         <Reveal delay={500}>
           <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-[13px] text-white/50">
-            <p>Ac {new Date().getFullYear()} The Pink Realty. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} The Pink Realty. All rights reserved.</p>
             <div className="flex gap-4">
               <a href={siteConfig.social.privacyPolicy} className="hover:text-white transition-colors">Privacy Policy</a>
               <a href={siteConfig.social.termsConditions} className="hover:text-white transition-colors">Terms & Conditions</a>

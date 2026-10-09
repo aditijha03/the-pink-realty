@@ -1,18 +1,13 @@
 import React from 'react';
-import { Head } from 'vite-react-ssg';
+import LegalLayout from '../components/LegalLayout';
+import { terms } from '../data/legal';
 
 export default function Terms() {
   return (
-    <div className="pt-32 pb-16 max-w-4xl mx-auto px-4">
-      <Head>
-        <title>Terms & Conditions | The Pink Realty</title>
-        <meta name="robots" content="noindex" />
-      </Head>
-      <h1 className="text-3xl font-heading text-text mb-6">Terms & Conditions</h1>
-      <div className="prose prose-pink dark:prose-invert">
-        <p>By using our services, you agree to these terms and conditions.</p>
-        <p>Last updated: {new Date().toLocaleDateString()}</p>
-      </div>
-    </div>
+    <LegalLayout 
+      doc={terms} 
+      slug="/terms" 
+      description="Read the Terms and Conditions of The Pink Realty. Learn about our services, policies, and website usage."
+    />
   );
 }

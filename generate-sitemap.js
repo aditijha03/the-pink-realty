@@ -30,6 +30,8 @@ async function generate() {
     '/services',
     '/property-list',
     '/contact-us',
+    '/privacy-policy',
+    '/terms',
     ...propertySlugs
   ];
 

@@ -13,6 +13,10 @@ export const siteConfig = {
     termsConditions: "/terms"
   },
   rera: "",
+  legalName: "",
+  grievanceOfficer: "",
+  dataRetention: "",
+  jurisdiction: "",
   introLoader: {
     mode: "always", // "always" | "session" | "off"
     routes: ["/"]

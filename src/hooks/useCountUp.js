@@ -1,9 +1,15 @@
 import { useState, useEffect, useRef } from 'react';
 
 export function useCountUp(end, duration = 1500) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(end);
   const countRef = useRef(null);
   const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    if (!hasAnimated.current) {
+      setCount(0);
+    }
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(

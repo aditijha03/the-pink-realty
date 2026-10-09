@@ -8,6 +8,8 @@ import PropertyList from './pages/PropertyList.jsx'
 import PropertyDetail from './pages/PropertyDetail.jsx'
 import ContactUs from './pages/ContactUs.jsx'
 import EmiCalculatorPage from './pages/EmiCalculatorPage.jsx'
+import PrivacyPolicy from './pages/PrivacyPolicy.jsx'
+import Terms from './pages/Terms.jsx'
 import AdminRoutes from './admin/AdminRoutes.jsx'
 import { AuthProvider } from './context/AuthContext.jsx'
 import './index.css'
@@ -32,7 +34,9 @@ export const routes = [
           { path: 'property-list', element: <PropertyList /> },
           { path: 'property/:slug', element: <PropertyDetail /> },
           { path: 'contact-us', element: <ContactUs /> },
-          { path: 'emi-calculator', element: <EmiCalculatorPage /> }
+          { path: 'emi-calculator', element: <EmiCalculatorPage /> },
+          { path: 'privacy-policy', element: <PrivacyPolicy /> },
+          { path: 'terms', element: <Terms /> }
         ]
       },
       {

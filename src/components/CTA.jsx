@@ -11,10 +11,10 @@ export default function CTA() {
       <section className="py-16 bg-surface-2 border-t border-border relative overflow-hidden transition-colors duration-300">
         {/* Decorative elements */}
         <div className="absolute top-0 right-0 opacity-10 dark:opacity-20 pointer-events-none transform translate-x-1/3 -translate-y-1/3 transition-opacity duration-300">
-          <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=400&h=400&fit=crop" className="w-[400px] h-[400px] rounded-full object-cover mix-blend-multiply dark:mix-blend-lighten" alt="" />
+          <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=400&h=400&fit=crop" className="w-[400px] h-[400px] rounded-full object-cover mix-blend-multiply dark:mix-blend-lighten" alt="Modern apartment balcony overlooking the city skyline" />
         </div>
         <div className="absolute bottom-0 left-0 opacity-10 dark:opacity-20 pointer-events-none transform -translate-x-1/4 translate-y-1/3 transition-opacity duration-300">
-          <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=400&fit=crop" className="w-[400px] h-[400px] rounded-full object-cover mix-blend-multiply dark:mix-blend-lighten" alt="" />
+          <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=400&fit=crop" className="w-[400px] h-[400px] rounded-full object-cover mix-blend-multiply dark:mix-blend-lighten" alt="Luxurious modern living room interior" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 xl:px-8 relative z-10">
