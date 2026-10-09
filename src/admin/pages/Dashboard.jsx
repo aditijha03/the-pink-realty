@@ -182,12 +182,7 @@ export default function Dashboard() {
                         <span className="capitalize">{prop.propertyType}</span>
                       </div>
                     </div>
-                    <div className="flex flex-col items-end gap-2 pl-4">
-                      {prop.status === 'published' ? (
-                        <span className="text-xs font-bold text-green-500">Published</span>
-                      ) : (
-                        <span className="text-xs font-bold text-gray-400 capitalize">{prop.status}</span>
-                      )}
+                    <div className="flex flex-col items-end justify-center pl-4">
                       <Link to={`/admin/properties/edit/${prop._id}`} className="p-1.5 text-gray-400 hover:text-[#D6246E] hover:bg-pink-50 rounded-lg transition-colors opacity-0 group-hover:opacity-100">
                         <Settings className="w-4 h-4" />
                       </Link>

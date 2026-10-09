@@ -77,6 +77,16 @@ router.get('/properties', async (req, res) => {
   }
 });
 
+router.get('/properties/:id', async (req, res) => {
+  try {
+    const property = await Property.findById(req.params.id);
+    if (!property) return res.status(404).json({ success: false, message: 'Property not found' });
+    res.json({ success: true, data: property });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+});
+
 router.put('/properties/:id', async (req, res) => {
   try {
     if (req.body.isPremium === true) {

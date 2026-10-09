@@ -39,9 +39,39 @@ export default function PropertyForm() {
 
   useEffect(() => {
     if (isEditing) {
-      // Fetch existing logic here
+      const fetchProperty = async () => {
+        try {
+          const res = await apiFetch(`/admin/properties/${id}`);
+          if (res.data) {
+            setFormData({
+              title: res.data.title || '',
+              listingType: res.data.listingType || 'sale',
+              propertyType: res.data.propertyType || 'apartment',
+              constructionStatus: res.data.constructionStatus || 'Ready to move',
+              furnishing: res.data.furnishing || 'Unfurnished',
+              price: res.data.price || '',
+              location: res.data.location || '',
+              bedrooms: res.data.bedrooms || '',
+              bathrooms: res.data.bathrooms || '',
+              parking: res.data.parking || '',
+              areaSqft: res.data.areaSqft || '',
+              description: res.data.description || '',
+              amenities: res.data.amenities || [],
+              featured: res.data.featured || false,
+              isPremium: res.data.isPremium || false,
+              showOnWebsite: res.data.showOnWebsite || false,
+            });
+            if (res.data.images) {
+              setImages(res.data.images);
+            }
+          }
+        } catch (error) {
+          console.error('Failed to fetch property details:', error);
+        }
+      };
+      fetchProperty();
     }
-  }, [id]);
+  }, [isEditing, id]);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
