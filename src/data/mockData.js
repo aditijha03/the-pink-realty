@@ -47,23 +47,23 @@ export const popularLocations = [
 export const testimonials = [
   {
     id: 1,
-    name: "Rohit & Neha Sharma",
-    location: "Navi Mumbai",
-    quote: "The Pink Realty made our home buying journey so smooth and stress-free. Their team was professional, transparent and always available. Highly recommended!",
+    name: "Mr. Pravin Kale & Mrs. Shalaka Kale",
+    location: "Mumbai",
+    quote: "From the first meeting to closing, the entire process was seamless and stress-free. Mr. Shiv & Maahi was incredibly responsive, handling every detail with professionalism and warmth. They truly went above and beyond to make sure we were comfortable and informed. If you want a top-notch, worry-free experience, choose The Pink Realty!",
     image: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=200&h=200&fit=crop"
   },
   {
     id: 2,
-    name: "Amit Desai",
-    location: "Thane",
-    quote: "Exceptional service from start to finish. They understood exactly what we were looking for and helped us secure a beautiful apartment within our budget.",
+    name: "Mr. Rakesh Sawant & Mrs. Rashmi Sawant",
+    location: "Navi Mumbai",
+    quote: "We are still blown away by the results! The Pink Realty team helped us to buy our dream home for significantly less than we expected, and it was just in few days. Their negotiation skills are unmatched. They fulfilled our expectations. Highly recommended The Pink Realty for serious results!",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop"
   },
   {
     id: 3,
-    name: "Priya & Vikram Singh",
-    location: "Mumbai",
-    quote: "Finding a reliable consultant in Mumbai is tough, but The Pink Realty stood out with their honest advice and verified property listings.",
+    name: "Mr. Rahul Verma & Mrs. Swati Verma",
+    location: "Thane",
+    quote: "We felt instantly at ease with our property consultant at The Pink Realty. Their deep knowledge of the local market was evident, guiding us to the perfect neighborhood and the perfect home. They were patient, always advocating for our best interests, and made us feel like a top priority. If you're looking for an honest, expert partner you can trust completely, look no further than The Pink Realty.",
     image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=200&h=200&fit=crop"
   }
 ];
