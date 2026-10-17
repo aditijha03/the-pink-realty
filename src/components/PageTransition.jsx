@@ -13,7 +13,12 @@ export default function PageTransition({ children }) {
     setPhase('exit');
 
     const timer = setTimeout(() => {
-      // 2. Swap page + fade in
+      // 2. Instant reset scroll to top before new page renders
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+
+      // 3. Swap page + fade in
       setDisplayKey(pathname);
       setPhase('enter');
     }, 200); // matches CSS exit duration

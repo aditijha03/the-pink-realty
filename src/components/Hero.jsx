@@ -43,7 +43,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-transparent dark:to-transparent/20 transition-colors duration-300"></div>
       </div>
       
-      <div className="relative z-30 max-w-7xl mx-auto px-4 xl:px-8 w-full pt-20 pointer-events-none">
+      <div className="relative z-30 max-w-7xl mx-auto px-4 xl:px-8 w-full pt-28 md:pt-36 pointer-events-none">
         <div className="max-w-2xl pointer-events-auto">
           <Reveal delay={100}>
             <span className="inline-block text-pink font-semibold tracking-wider text-xs md:text-sm uppercase mb-4">
