@@ -7,7 +7,7 @@ export default function FloatingWhatsApp() {
       href={`https://wa.me/${siteConfig.contact.whatsappNumber}`} 
       target="_blank" 
       rel="noopener noreferrer"
-      className="fixed bottom-20 md:bottom-6 right-4 md:right-6 z-40 bg-[#25D366] text-white p-3.5 rounded-full shadow-[0_0_15px_rgba(37,211,102,0.5)] hover:shadow-[0_0_25px_rgba(37,211,102,0.8)] transition-all duration-300 hover:-translate-y-1 animate-pulse-soft flex items-center justify-center group overflow-hidden"
+      className="fixed bottom-6 right-4 md:right-6 z-40 bg-[#25D366] text-white p-3.5 rounded-full shadow-[0_0_15px_rgba(37,211,102,0.5)] hover:shadow-[0_0_25px_rgba(37,211,102,0.8)] transition-all duration-300 hover:-translate-y-1 animate-pulse-soft flex items-center justify-center group overflow-hidden"
       aria-label="Chat on WhatsApp"
     >
       <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent group-hover:animate-[shimmer_0.7s_ease-out_forwards]" />

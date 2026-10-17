@@ -12,6 +12,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy.jsx'
 import Terms from './pages/Terms.jsx'
 import AdminRoutes from './admin/AdminRoutes.jsx'
 import { AuthProvider } from './context/AuthContext.jsx'
+import RouteErrorBoundary from './components/RouteErrorBoundary.jsx'
 import './index.css'
 
 import { Outlet } from 'react-router-dom'
@@ -23,10 +24,12 @@ export const routes = [
         <Outlet />
       </AuthProvider>
     ),
+    errorElement: <RouteErrorBoundary />,
     children: [
       {
         path: '/',
         element: <App />,
+        errorElement: <RouteErrorBoundary />,
         children: [
           { index: true, element: <Home /> },
           { path: 'about-us', element: <About /> },

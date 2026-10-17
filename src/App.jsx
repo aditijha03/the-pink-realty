@@ -2,7 +2,6 @@ import React from 'react'
 import { Outlet } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-import MobileBottomBar from './components/MobileBottomBar'
 import FloatingWhatsApp from './components/FloatingWhatsApp'
 import ScrollToTop from './components/ScrollToTop'
 import PageTransition from './components/PageTransition'
@@ -36,7 +35,6 @@ function App() {
       </main>
       <Footer />
       <aside aria-label="Quick Actions">
-        <MobileBottomBar />
         <FloatingWhatsApp />
       </aside>
     </>

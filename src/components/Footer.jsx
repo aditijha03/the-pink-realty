@@ -43,7 +43,7 @@ export default function Footer() {
   return (
     <>
       <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-pink to-transparent opacity-0 dark:opacity-100 transition-opacity duration-300" />
-      <footer className="bg-[#0B1120] dark:bg-[#05030A] pt-16 pb-24 md:pb-8 text-white/80 text-sm transition-colors duration-300">
+      <footer className="bg-[#0B1120] dark:bg-[#05030A] pt-16 pb-12 md:pb-8 text-white/80 text-sm transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 xl:px-8">
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
