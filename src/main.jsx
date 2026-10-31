@@ -10,6 +10,7 @@ import ContactUs from './pages/ContactUs.jsx'
 import EmiCalculatorPage from './pages/EmiCalculatorPage.jsx'
 import PrivacyPolicy from './pages/PrivacyPolicy.jsx'
 import Terms from './pages/Terms.jsx'
+import ReferAndEarn from './pages/ReferAndEarn.jsx'
 import AdminRoutes from './admin/AdminRoutes.jsx'
 import { AuthProvider } from './context/AuthContext.jsx'
 import RouteErrorBoundary from './components/RouteErrorBoundary.jsx'
@@ -39,7 +40,8 @@ export const routes = [
           { path: 'contact-us', element: <ContactUs /> },
           { path: 'emi-calculator', element: <EmiCalculatorPage /> },
           { path: 'privacy-policy', element: <PrivacyPolicy /> },
-          { path: 'terms', element: <Terms /> }
+          { path: 'terms', element: <Terms /> },
+          { path: 'refer-and-earn', element: <ReferAndEarn /> }
         ]
       },
       {

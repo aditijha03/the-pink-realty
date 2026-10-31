@@ -11,6 +11,7 @@ const authRoutes = require('./routes/auth');
 const adminRoutes = require('./routes/admin');
 const publicRoutes = require('./routes/public');
 const enquiriesRoutes = require('./routes/enquiries');
+const referralsRoutes = require('./routes/referrals');
 
 const app = express();
 
@@ -117,6 +118,7 @@ app.use('/api/admin', adminRoutes);
 app.use('/api/admin/upload', uploadRoutes); // Use it under admin
 app.use('/api/public', publicRoutes);
 app.use('/api/enquiries', enquiriesRoutes);
+app.use('/api/referrals', referralsRoutes);
 
 // Custom Error Handling
 app.use((err, req, res, next) => {
@@ -133,9 +135,27 @@ const dbUri = process.env.NODE_ENV === 'production'
   ? (process.env.MONGODB_URI || process.env.MONGO_URI)
   : (process.env.MONGODB_URI || process.env.MONGO_URI || 'mongodb://localhost:27017/pinkrealty');
 
+process.on('uncaughtException', (err) => {
+  console.error('Uncaught Exception:', err);
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('Unhandled Rejection at:', promise, 'reason:', reason);
+});
+
+mongoose.connection.on('error', (err) => {
+  console.error('Mongoose connection error:', err);
+});
+
+mongoose.connection.on('disconnected', () => {
+  console.warn('Mongoose disconnected from MongoDB');
+});
+
 mongoose.connect(dbUri)
   .then(() => {
     console.log('Connected to MongoDB');
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
   })
   .catch(err => console.error('MongoDB connection error:', err));
+
+module.exports = app;

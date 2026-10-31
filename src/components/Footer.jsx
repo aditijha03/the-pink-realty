@@ -75,13 +75,21 @@ export default function Footer() {
           <Reveal delay={200}>
             <h4 className="text-white font-heading font-bold text-lg mb-6">Quick Links</h4>
             <ul className="space-y-3">
-              {['Home', 'About us', 'Services', 'Property List', 'EMI Calculator', 'Contact us'].map(link => (
-                <li key={link}>
+              {[
+                { name: 'Home', path: '/' },
+                { name: 'About us', path: '/about-us' },
+                { name: 'Services', path: '/services' },
+                { name: 'Property List', path: '/property-list' },
+                { name: 'EMI Calculator', path: '/emi-calculator' },
+                { name: 'Refer & Earn', path: '/refer-and-earn' },
+                { name: 'Contact us', path: '/contact-us' }
+              ].map(link => (
+                <li key={link.name}>
                   <Link 
-                    to={link === 'Home' ? '/' : `/${link.toLowerCase().replace(' ', '-')}`} 
+                    to={link.path} 
                     className="hover:text-pink transition-colors"
                   >
-                    {link}
+                    {link.name}
                   </Link>
                 </li>
               ))}

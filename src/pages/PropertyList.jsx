@@ -109,7 +109,7 @@ export default function PropertyList() {
     bhk: 'all',
     budgetMin: 0,
     budgetMax: 1000000000,
-    status: 'all',
+    status: searchParams.get('status') || 'all',
     furnishing: 'all',
     keyword: searchParams.get('keyword') || ''
   });
@@ -144,7 +144,7 @@ export default function PropertyList() {
       bhk: 'all',
       budgetMin: 0,
       budgetMax: 1000000000,
-      status: 'all',
+      status: searchParams.get('status') || 'all',
       furnishing: 'all',
       keyword: ''
     });
@@ -181,8 +181,39 @@ export default function PropertyList() {
     }
     
     if (filters.status !== 'all') {
-      result = result.filter(p => p.status === filters.status.toLowerCase());
-      
+      const selectedStatus = filters.status.toLowerCase();
+      if (selectedStatus === 'under construction') {
+        result = result.filter(p => 
+          (p.constructionStatus && p.constructionStatus.toLowerCase() === 'under construction') ||
+          (p.status && p.status.toLowerCase() === 'under construction')
+        );
+      } else if (selectedStatus === 'ready to move') {
+        result = result.filter(p => 
+          (p.constructionStatus && p.constructionStatus.toLowerCase() === 'ready to move') ||
+          (p.status && p.status.toLowerCase() === 'ready to move')
+        );
+      } else if (selectedStatus.includes('affordable')) {
+        // Affordable Homes: Not marked as premium project, lower/accessible budget
+        result = result.filter(p => {
+          if (p.isPremium) return false;
+          if (p.type === 'rent') {
+            return p.rawPrice <= 50000 || !p.rawPrice;
+          }
+          return p.rawPrice <= 15000000 || !p.rawPrice;
+        });
+      } else if (selectedStatus.includes('luxur') || selectedStatus.includes('premium')) {
+        // Luxury Homes: Displays premium projects (isPremium === true) or luxury-designated properties
+        result = result.filter(p => 
+          p.isPremium === true ||
+          p.featured === true ||
+          (p.title && /luxury|lavish|premium|villa/i.test(p.title)) ||
+          (p.description && /luxury|lavish|premium/i.test(p.description)) ||
+          (p.type === 'sale' && p.rawPrice >= 20000000) ||
+          (p.type === 'rent' && p.rawPrice >= 100000)
+        );
+      } else {
+        result = result.filter(p => (p.status && p.status.toLowerCase() === selectedStatus));
+      }
     }
     
     if (filters.furnishing !== 'all') {
@@ -350,8 +381,10 @@ export default function PropertyList() {
                 <label className="block text-sm font-medium text-text-muted mb-1.5">Status</label>
                 <select className="w-full px-4 py-2 rounded-xl border border-border bg-surface text-text focus:outline-none focus:border-pink text-sm transition-colors duration-300" value={filters.status} onChange={(e) => updateFilter('status', e.target.value)}>
                   <option value="all">Any Status</option>
-                  <option value="Ready to move">Ready to move</option>
-                  <option value="Under construction">Under construction</option>
+                  <option value="under construction">Under Construction</option>
+                  <option value="ready to move">Ready to Move</option>
+                  <option value="affordable">Affordable Homes</option>
+                  <option value="luxury">Luxury Homes</option>
                 </select>
               </div>
 

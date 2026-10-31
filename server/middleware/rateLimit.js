@@ -46,6 +46,12 @@ const enquiriesLimiter = createLimiter({
   limit: 5,
 });
 
+// POST /api/referrals: 5 per hour per IP
+const referralsLimiter = createLimiter({
+  windowMs: 60 * 60 * 1000,
+  limit: 5,
+});
+
 // Admin routes: 300 per 15 min, keyed by user id where authenticated
 const adminLimiter = createLimiter({
   windowMs: 15 * 60 * 1000,
@@ -66,6 +72,7 @@ module.exports = {
   globalLimiter,
   loginLimiter,
   enquiriesLimiter,
+  referralsLimiter,
   adminLimiter,
   publicLimiter
 };

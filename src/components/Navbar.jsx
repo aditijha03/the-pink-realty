@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, ChevronDown, Menu, X, Sun, Moon, Key } from 'lucide-react';
+import { Home, ChevronDown, Menu, X, Key } from 'lucide-react';
 import EnquireModal from './EnquireModal';
 import LoginModal from './LoginModal';
-import { useTheme } from '../hooks/useTheme';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -12,7 +11,6 @@ export default function Navbar() {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const location = useLocation();
   const currentPath = location.pathname;
-  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,10 +36,6 @@ export default function Navbar() {
     { name: 'Property List' },
     { name: 'Contact us' },
   ];
-
-  const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
-  };
 
   return (
     <>
@@ -83,14 +77,6 @@ export default function Navbar() {
 
           <div className="hidden lg:flex items-center gap-6">
             <button 
-              onClick={toggleTheme}
-              className="relative p-2 rounded-full transition-colors text-slate-300 hover:bg-white/10 hover:text-pink overflow-hidden w-9 h-9 flex items-center justify-center"
-              aria-label="Toggle theme"
-            >
-              <Sun className={`absolute w-5 h-5 transition-all duration-500 ${theme === 'dark' ? 'opacity-0 rotate-90 scale-50' : 'opacity-100 rotate-0 scale-100'}`} />
-              <Moon className={`absolute w-5 h-5 transition-all duration-500 ${theme === 'dark' ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-50'}`} />
-            </button>
-            <button 
               onClick={() => setIsModalOpen(true)}
               className="bg-pink-button hover:bg-pink-button-hover text-white px-6 py-2.5 rounded-full font-medium transition-colors shadow-soft"
             >
@@ -105,7 +91,7 @@ export default function Navbar() {
             </button>
           </div>
 
-          {/* Mobile Menu Toggle & Theme Toggle */}
+          {/* Mobile Menu Toggle */}
           <div className="flex items-center gap-2 lg:hidden z-50">
             <button 
               onClick={() => setIsLoginModalOpen(true)}
@@ -113,14 +99,6 @@ export default function Navbar() {
               title="Admin Login"
             >
               <Key className="w-5 h-5 opacity-60 hover:opacity-100 transition-opacity" />
-            </button>
-            <button 
-              onClick={toggleTheme}
-              className="relative p-2 rounded-full transition-colors text-slate-300 hover:bg-white/10 hover:text-pink overflow-hidden w-9 h-9 flex items-center justify-center"
-              aria-label="Toggle theme"
-            >
-              <Sun className={`absolute w-5 h-5 transition-all duration-500 ${theme === 'dark' ? 'opacity-0 rotate-90 scale-50' : 'opacity-100 rotate-0 scale-100'}`} />
-              <Moon className={`absolute w-5 h-5 transition-all duration-500 ${theme === 'dark' ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-50'}`} />
             </button>
             <button 
               className="p-2 text-white hover:text-pink transition-colors"

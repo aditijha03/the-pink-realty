@@ -32,6 +32,7 @@ async function generate() {
     '/contact-us',
     '/privacy-policy',
     '/terms',
+    '/refer-and-earn',
     ...propertySlugs
   ];
 
@@ -63,6 +64,15 @@ Sitemap: ${domain}/sitemap.xml`;
     fs.writeFileSync(path.join(distPath, 'sitemap.xml'), sitemap);
     fs.writeFileSync(path.join(distPath, 'robots.txt'), robotsTxt);
     console.log('Sitemap and robots.txt generated successfully.');
+
+    // Ensure vite-react-ssg manifest fallback exists for client hydration
+    const manifestFiles = fs.readdirSync(distPath).filter(f => f.startsWith('static-loader-data-manifest-') && f.endsWith('.json') && f !== 'static-loader-data-manifest-undefined.json');
+    if (manifestFiles.length > 0) {
+      fs.copyFileSync(
+        path.join(distPath, manifestFiles[0]),
+        path.join(distPath, 'static-loader-data-manifest-undefined.json')
+      );
+    }
   } else {
     console.error('dist directory not found.');
   }

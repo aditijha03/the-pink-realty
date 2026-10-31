@@ -12,6 +12,7 @@ const routes = [
   '/property-list', 
   '/property/property-1-in-mumbai', 
   '/emi-calculator', 
+  '/refer-and-earn', 
   '/contact-us', 
   '/admin/login'
 ];

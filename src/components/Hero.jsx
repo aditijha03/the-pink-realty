@@ -29,16 +29,18 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-[90vh] md:h-[90vh] md:min-h-[700px] flex items-start md:items-center w-full">
-      {/* Background Image with Ken Burns */}
+      {/* Background Video */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <img 
-          src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1920&h=1080&fit=crop" 
-          alt="Luxury balcony view of Mumbai skyline"
-          width="1920"
-          height="1080"
-          fetchPriority="high"
-          className="w-full h-full object-cover animate-ken-burns transition-all duration-300"
-        />
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          poster="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1920&h=1080&fit=crop"
+          className="w-full h-full object-cover"
+        >
+          <source src="/herobg2.webm" type="video/webm" />
+        </video>
         {/* Gradient Overlay left-to-right */}
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-transparent dark:to-transparent/20 transition-colors duration-300"></div>
       </div>

@@ -6,6 +6,7 @@ const Dashboard = lazy(() => import('./pages/Dashboard'));
 const Properties = lazy(() => import('./pages/Properties'));
 const PropertyForm = lazy(() => import('./pages/PropertyForm'));
 const Enquiries = lazy(() => import('./pages/Enquiries'));
+const Referrals = lazy(() => import('./pages/Referrals'));
 
 const AdminRoutes = () => {
   return (
@@ -18,6 +19,7 @@ const AdminRoutes = () => {
           <Route path="properties/new" element={<PropertyForm />} />
           <Route path="properties/edit/:id" element={<PropertyForm />} />
           <Route path="enquiries" element={<Enquiries />} />
+          <Route path="referrals" element={<Referrals />} />
         </Route>
       </Routes>
     </Suspense>

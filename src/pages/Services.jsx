@@ -6,7 +6,7 @@ import CTA from '../components/CTA';
 import FAQ from '../components/FAQ';
 import EnquireModal from '../components/EnquireModal';
 import { Link } from 'react-router-dom';
-import { Key, Home, Building2, TrendingUp, Globe2, FileCheck, ShieldCheck, Calculator, CheckCircle2, Target, Building, Handshake, FileText } from 'lucide-react';
+import { Key, Home, Building2, TrendingUp, Globe2, FileCheck, ShieldCheck, Calculator, CheckCircle2, Target, Building, Handshake, FileText, Gift } from 'lucide-react';
 
 export default function Services() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -28,7 +28,8 @@ export default function Services() {
     { id: "rent", icon: <Building2 className="w-8 h-8 text-pink" />, title: "Rent & Lease", desc: "Hassle-free renting for tenants and property management for owners." },
     { id: "new", icon: <Building className="w-8 h-8 text-pink" />, title: "New Projects", desc: "Exclusive access to pre-launch offers from top builders." },
     { id: "invest", icon: <TrendingUp className="w-8 h-8 text-pink" />, title: "Investment Advisory", desc: "Data-driven insights for high ROI real estate investments." },
-    { id: "nri", icon: <Globe2 className="w-8 h-8 text-pink" />, title: "NRI Services", desc: "End-to-end property management and investment solutions for NRIs." }
+    { id: "nri", icon: <Globe2 className="w-8 h-8 text-pink" />, title: "NRI Services", desc: "End-to-end property management and investment solutions for NRIs." },
+    { id: "refer", icon: <Gift className="w-8 h-8 text-pink" />, title: "Refer & Earn / Partner with us", desc: "Refer prospective homebuyers or partner with us to unlock attractive rewards.", link: "/refer-and-earn" }
   ];
 
   const serviceDetails = [
@@ -102,9 +103,17 @@ export default function Services() {
                   </div>
                   <h3 className="text-xl font-semibold mb-3 text-text">{service.title}</h3>
                   <p className="text-text-muted mb-6 flex-grow">{service.desc}</p>
-                  <a href={`#${service.id}`} className="text-pink font-medium hover:underline inline-flex items-center gap-1">
-                    Learn more <span aria-hidden="true">&rarr;</span>
-                  </a>
+                  {service.link ? (
+                    <Link to={service.link} className="text-pink font-medium hover:underline inline-flex items-center gap-1">
+                      Learn more <span aria-hidden="true">&rarr;</span>
+                    </Link>
+                  ) : (
+                    <a href={`#${service.id}`} className="text-pink font-medium hover:underline inline-flex items-center gap-1">
+                      Learn more <span aria-hidden="true">&rarr;</span>
+                    </a>
+                  )}
+
+
                 </div>
               </Reveal>
             ))}

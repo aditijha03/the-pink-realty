@@ -295,3 +295,27 @@
 
 
 
+
+
+/* ── Infinite Marquee Animation ──────────────── */
+@keyframes marquee-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee,
+.partner-marquee-track {
+  display: flex !important;
+  width: max-content !important;
+  animation: marquee-scroll 25s linear infinite !important;
+  will-change: transform;
+}
+
+.animate-marquee:hover,
+.partner-marquee-track:hover {
+  animation-play-state: paused !important;
+}

@@ -57,6 +57,10 @@ export default {
           '0%': { transform: 'translateX(-100%)' },
           '100%': { transform: 'translateX(200%)' },
         },
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
       },
       animation: {
         'shimmer': 'shimmer 6s linear infinite',
@@ -64,6 +68,7 @@ export default {
         'intro-logo': 'intro-logo 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
         'intro-line': 'intro-line 0.8s ease-out forwards',
         'intro-shimmer': 'intro-shimmer 1.5s ease-in-out forwards',
+        'marquee': 'marquee 25s linear infinite',
       }
     },
   },

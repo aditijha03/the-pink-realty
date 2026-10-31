@@ -13,6 +13,7 @@ import FAQ from '../components/FAQ'
 import AboutIntro from '../components/AboutIntro'
 import CTA from '../components/CTA'
 import EmiCtaBanner from '../components/EmiCtaBanner'
+import ReferralCtaBanner from '../components/ReferralCtaBanner'
 import Reveal from '../components/Reveal'
 
 export default function Home() {
@@ -105,6 +106,7 @@ export default function Home() {
       <PopularLocations />
       <WhyUs />
       
+      <ReferralCtaBanner />
       <EmiCtaBanner />
 
       <Testimonials />

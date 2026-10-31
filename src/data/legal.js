@@ -9,6 +9,7 @@ export const privacy = {
       heading: "Information we collect",
       blocks: [
         "- **Information you give us:** your name, phone number, email address, preferred location, budget, property requirements, and any message you write when you use our enquiry, contact, \"Post Requirement\" or \"List your property\" forms.",
+        "- details of people you refer to us, which you should share only with their knowledge.",
         "- **Information collected automatically:** basic technical data such as your browser, device type, pages viewed, and approximate location from your IP address, collected through our hosting and security systems.",
         "- **Communications:** if you contact us by phone, email or WhatsApp, we keep a record of the conversation.",
         "We don't knowingly collect sensitive financial details (such as card or bank account numbers) through this website."

@@ -4,6 +4,13 @@ export const siteConfig = {
     whatsappNumber: "918756250303",
     displayWhatsapp: "+91 87562 50303"
   },
+  referral: {
+    rewardSummary: "",
+    rewardDetails: "",
+    payoutTimeline: "",
+    programTerms: [],
+    minimumEligibleDeal: ""
+  },
   social: {
     facebook: "https://facebook.com/thepinkrealty",
     instagram: "https://instagram.com/thepinkrealty",

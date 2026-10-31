@@ -1,24 +1,18 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--head-tags-->
     <link rel="icon" href="/logo.webp" />
     <script>
-      (function() {
-        try {
-          var localTheme = localStorage.getItem('theme');
-          var sysTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          var theme = localTheme === 'dark' || (localTheme !== 'light' && sysTheme) ? 'dark' : 'light';
-          if (theme === 'dark') {
-            document.documentElement.classList.add('dark');
-          }
-        } catch (e) {}
-      })();
+      document.documentElement.classList.add('dark');
+      try {
+        localStorage.setItem('theme', 'dark');
+      } catch (e) {}
     </script>
   </head>
-  <body>
+  <body class="bg-[#0A0710] text-slate-100">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

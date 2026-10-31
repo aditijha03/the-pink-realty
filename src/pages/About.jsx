@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Head } from 'vite-react-ssg';
 import PageHero from '../components/PageHero';
 import Reveal from '../components/Reveal';
@@ -157,16 +158,52 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-16 bg-surface-2 border-y border-border">
-        <div className="max-w-7xl mx-auto px-4 xl:px-8 text-center">
+      <section className="py-16 bg-surface-2 border-y border-border overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 xl:px-8 text-center mb-8">
           <Reveal>
-            <h3 className="text-xl font-medium mb-8 text-text-muted">Registered & Partnered With</h3>
-            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60">
-              <div className="font-heading font-bold text-xl text-text">LODHA</div>
-              <div className="font-heading font-bold text-xl text-text">GODREJ</div>
-              <div className="font-heading font-bold text-xl text-text">HIRANANDANI</div>
-              <div className="font-heading font-bold text-xl text-text">TATA HOUSING</div>
-            </div>
+            <h3 className="text-xl font-medium text-text-muted">Registered & Partnered With</h3>
+          </Reveal>
+        </div>
+
+        {/* Marquee Track with gradient edge masks */}
+        <div className="relative w-full overflow-hidden py-4">
+          <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-28 md:w-44 bg-gradient-to-r from-surface-2 to-transparent z-10" />
+          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-28 md:w-44 bg-gradient-to-l from-surface-2 to-transparent z-10" />
+
+          <div className="animate-marquee partner-marquee-track flex items-center">
+            {[
+              'Hiranandani Fortune City',
+              'Raheja Universal',
+              'Godrej Residential',
+              'Gami Group',
+              'Satyam Metro',
+              'Today Global',
+              'Paradise Group',
+              'Kamdhenu',
+              'Hiranandani Fortune City',
+              'Raheja Universal',
+              'Godrej Residential',
+              'Gami Group',
+              'Satyam Metro',
+              'Today Global',
+              'Paradise Group',
+              'Kamdhenu'
+            ].map((partner, index) => (
+              <div key={index} className="flex items-center gap-8 sm:gap-14 pr-8 sm:pr-14 shrink-0">
+                <span className="font-heading font-bold text-lg sm:text-xl md:text-2xl text-text opacity-75 hover:opacity-100 hover:text-pink transition-all whitespace-nowrap tracking-wide cursor-default">
+                  {partner}
+                </span>
+                <span className="w-2 h-2 rounded-full bg-pink/40 shrink-0" aria-hidden="true" />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 xl:px-8 text-center mt-8">
+          <Reveal>
+            <p className="text-sm md:text-base text-text-muted">
+              Looking to collaborate with us? <Link to="/refer-and-earn" className="text-pink font-semibold hover:underline inline-flex items-center gap-1">Partner with us &rarr;</Link>
+            </p>
           </Reveal>
         </div>
       </section>

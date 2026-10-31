@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { apiFetch } from '../../lib/api';
-import { Home, Heart, FileText, AlertCircle, Plus, Settings } from 'lucide-react';
+import { Home, Heart, FileText, AlertCircle, Plus, Settings, Gift } from 'lucide-react';
 
 const formatPrice = (price) => {
   if (!price || isNaN(price)) return '₹0';
@@ -12,7 +12,7 @@ const formatPrice = (price) => {
 
 export default function Dashboard() {
   const [data, setData] = useState({
-    stats: { totalProperties: 0, featuredProperties: 0, totalEnquiries: 0, newEnquiries: 0 },
+    stats: { totalProperties: 0, featuredProperties: 0, totalEnquiries: 0, newEnquiries: 0, totalReferrals: 0, newReferrals: 0 },
     recentProperties: [],
     recentEnquiries: []
   });
@@ -39,7 +39,7 @@ export default function Dashboard() {
       </div>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-10">
         
         {/* Total Properties */}
         <div className="bg-white dark:bg-surface p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-white/10 flex flex-col relative overflow-hidden">
@@ -96,7 +96,7 @@ export default function Dashboard() {
         <div className="bg-white dark:bg-surface p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-white/10 flex flex-col relative overflow-hidden">
           <div className="flex justify-between items-start mb-4">
             <div>
-              <p className="text-xs font-bold text-gray-500 dark:text-gray-400 tracking-wider uppercase mb-1">Pending Tasks</p>
+              <p className="text-xs font-bold text-gray-500 dark:text-gray-400 tracking-wider uppercase mb-1">Pending Enquiries</p>
               <h3 className="text-4xl font-bold text-gray-900 dark:text-gray-100">{data.stats.newEnquiries}</h3>
             </div>
             <div className="w-10 h-10 rounded-xl bg-green-50 dark:bg-green-500/10 flex items-center justify-center text-green-500">
@@ -107,6 +107,24 @@ export default function Dashboard() {
             <p className="text-sm text-gray-500 dark:text-gray-400">Requires customer contact</p>
           </div>
           <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-green-100 to-transparent"></div>
+        </div>
+
+        {/* New Referrals */}
+        <div className="bg-white dark:bg-surface p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-white/10 flex flex-col relative overflow-hidden">
+          <div className="flex justify-between items-start mb-4">
+            <div>
+              <p className="text-xs font-bold text-gray-500 dark:text-gray-400 tracking-wider uppercase mb-1">New Referrals</p>
+              <h3 className="text-4xl font-bold text-gray-900 dark:text-gray-100">{data.stats.newReferrals ?? 0}</h3>
+            </div>
+            <div className="w-10 h-10 rounded-xl bg-pink-50 dark:bg-pink-500/10 flex items-center justify-center text-[#D6246E]">
+              <Gift className="w-5 h-5" />
+            </div>
+          </div>
+          <div className="mt-auto flex justify-between items-center">
+            <p className="text-sm text-gray-500 dark:text-gray-400">{data.stats.totalReferrals ?? 0} total records</p>
+            <Link to="/admin/referrals" className="text-xs font-bold text-[#D6246E] hover:underline">View &rarr;</Link>
+          </div>
+          <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[#D6246E]/40 to-transparent"></div>
         </div>
       </div>
 
