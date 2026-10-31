@@ -3,10 +3,27 @@ import { Link, useLocation } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
 import Reveal from './Reveal';
 
-export default function PageHero({ titleHTML, subtitle, bgImage = "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80" }) {
+const routeNameMap = {
+  'about-us': 'Our Story',
+  'about': 'Our Story',
+  'services': 'Our Craft',
+  'property-list': 'Signature Collection',
+  'properties': 'Signature Collection',
+  'contact-us': "Let's Connect",
+  'contact': "Let's Connect",
+  'emi-calculator': 'EMI Calculator',
+  'refer-and-earn': 'Refer & Earn'
+};
+
+export default function PageHero({ 
+  titleHTML, 
+  subtitle, 
+  bgImage = "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80",
+  breadcrumbName 
+}) {
   const location = useLocation();
-  const path = location.pathname.split('/').filter(Boolean)[0];
-  const pageName = path ? path.replace(/-/g, ' ') : '';
+  const path = location.pathname.split('/').filter(Boolean)[0] || '';
+  const pageName = breadcrumbName || routeNameMap[path] || (path ? path.replace(/-/g, ' ') : '');
   
   return (
     <section className="relative pt-28 pb-12 md:pt-36 md:pb-20 overflow-hidden flex items-center min-h-[320px]">
@@ -22,9 +39,9 @@ export default function PageHero({ titleHTML, subtitle, bgImage = "https://image
       <div className="max-w-7xl mx-auto px-4 xl:px-8 relative z-10 w-full">
         <Reveal>
           <div className="flex items-center text-sm font-medium text-white/70 mb-6">
-            <Link to="/" className="hover:text-pink transition-colors">Home</Link>
+            <Link to="/" className="hover:text-pink transition-colors">Discover</Link>
             <ChevronRight className="w-4 h-4 mx-2 text-white/40" />
-            <span className="capitalize text-pink">{pageName}</span>
+            <span className="text-pink font-medium">{pageName}</span>
           </div>
           
           <h1 

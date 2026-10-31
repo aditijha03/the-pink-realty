@@ -70,15 +70,15 @@ export default function ContactUs() {
   return (
     <>
       <Head>
-        <title>Contact Us | The Pink Realty</title>
+        <title>Let's Connect | The Pink Realty</title>
         <meta name="description" content="Get in touch with The Pink Realty. We are here to help you buy, sell, or rent properties in Mumbai and Navi Mumbai." />
         <link rel="canonical" href="https://thepinkrealty.com/contact-us" />
-        <meta property="og:title" content="Contact Us | The Pink Realty" />
+        <meta property="og:title" content="Let's Connect | The Pink Realty" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Head>
 
       <PageHero 
-        titleHTML="Let's find your <em class='text-pink not-italic font-serif italic'>next</em> home."
+        titleHTML="Let's <em class='text-pink not-italic font-serif italic'>Connect</em>."
         subtitle="Our team is ready to answer your questions and guide you through your real estate journey."
         bgImage="https://images.unsplash.com/photo-1516387938699-a93567ec168e?w=1920&q=80"
       />

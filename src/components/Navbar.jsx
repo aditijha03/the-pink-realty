@@ -30,11 +30,11 @@ export default function Navbar() {
   }, [location.search]);
 
   const navLinks = [
-    { name: 'Home' },
-    { name: 'About us' },
-    { name: 'Services' },
-    { name: 'Property List' },
-    { name: 'Contact us' },
+    { name: 'Discover', path: '/' },
+    { name: 'Our Story', path: '/about-us' },
+    { name: 'Our Craft', path: '/services' },
+    { name: 'Signature Collection', path: '/property-list' },
+    { name: "Let's Connect", path: '/contact-us' },
   ];
 
   return (
@@ -60,12 +60,11 @@ export default function Navbar() {
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => {
-              const path = link.name === 'Home' ? '/' : `/${link.name.toLowerCase().replace(/ /g, '-')}`;
-              const isActive = currentPath === path;
+              const isActive = currentPath === link.path;
               return (
                 <Link
                   key={link.name}
-                  to={path}
+                  to={link.path}
                   className={`relative group flex items-center gap-1 text-[15px] font-medium transition-colors ${isActive ? 'text-pink active' : 'text-slate-200 hover:text-white'}`}
                 >
                   <span>{link.name}</span>
@@ -126,12 +125,11 @@ export default function Navbar() {
       >
         <nav className="flex flex-col gap-6 text-xl font-heading text-white">
           {navLinks.map((link) => {
-            const path = link.name === 'Home' ? '/' : `/${link.name.toLowerCase().replace(/ /g, '-')}`;
-            const isActive = currentPath === path;
+            const isActive = currentPath === link.path;
             return (
               <Link
                 key={link.name}
-                to={path}
+                to={link.path}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={`flex items-center justify-between border-b border-white/10 pb-4 transition-colors ${isActive ? 'text-pink' : 'text-slate-200 hover:text-pink'}`}
               >

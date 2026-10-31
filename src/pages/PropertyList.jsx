@@ -266,15 +266,16 @@ export default function PropertyList() {
   return (
     <>
       <Head>
-        <title>Property List | The Pink Realty</title>
+        <title>Signature Collection | The Pink Realty</title>
         <meta name="description" content="Explore our extensive list of properties for sale and rent in Mumbai and Navi Mumbai." />
         <link rel="canonical" href="https://thepinkrealty.com/property-list" />
-        <meta property="og:title" content="Property List | The Pink Realty" />
+        <meta property="og:title" content="Signature Collection | The Pink Realty" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Head>
 
       <PageHero 
-        titleHTML="Find your <em class='text-pink not-italic font-serif italic'>perfect</em> property."
+        titleHTML="Our <em class='text-pink not-italic font-serif italic'>Signature</em> Collection."
+        subtitle="Discover curated residences and commercial spaces across Mumbai & Navi Mumbai."
         bgImage="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1920&q=80"
       />
 

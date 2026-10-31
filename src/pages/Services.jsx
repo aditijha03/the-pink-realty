@@ -78,15 +78,15 @@ export default function Services() {
   return (
     <>
       <Head>
-        <title>Our Services | The Pink Realty</title>
+        <title>Our Craft | The Pink Realty</title>
         <meta name="description" content="From buying and selling to legal assistance and NRI services, we are your one-stop partner for real estate." />
         <link rel="canonical" href="https://thepinkrealty.com/services" />
-        <meta property="og:title" content="Our Services | The Pink Realty" />
+        <meta property="og:title" content="Our Craft | The Pink Realty" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Head>
 
       <PageHero 
-        titleHTML="Everything you need, <em class='text-pink not-italic font-serif italic'>one</em> trusted partner."
+        titleHTML="Our <em class='text-pink not-italic font-serif italic'>Craft</em>: Everything you need, one trusted partner."
         subtitle="Comprehensive real estate solutions tailored to your unique requirements."
         bgImage="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=1920&q=80"
       />

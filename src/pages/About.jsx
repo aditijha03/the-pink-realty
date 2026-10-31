@@ -37,16 +37,16 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>About Us | The Pink Realty</title>
+        <title>Our Story | The Pink Realty</title>
         <meta name="description" content="Property guidance you can trust. Learn about The Pink Realty, a leading real estate consultant in Mumbai and Navi Mumbai." />
         <link rel="canonical" href="https://thepinkrealty.com/about-us" />
-        <meta property="og:title" content="About Us | The Pink Realty" />
+        <meta property="og:title" content="Our Story | The Pink Realty" />
         <meta property="og:description" content="Property guidance you can trust. Learn about The Pink Realty." />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Head>
 
       <PageHero 
-        titleHTML="Property guidance you can <em class='text-pink not-italic font-serif italic'>trust</em>."
+        titleHTML="Our <em class='text-pink not-italic font-serif italic'>Story</em>: Property guidance you can trust."
         subtitle="Serving Mumbai and Navi Mumbai for over 10 years."
         bgImage="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80"
       />
