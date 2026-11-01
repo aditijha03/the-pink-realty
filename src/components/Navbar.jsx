@@ -47,13 +47,13 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-[1600px] w-full mx-auto px-6 xl:px-12 h-full flex items-center justify-between">
-          <Link to="/" className="flex items-center h-full py-1 md:py-1.5 z-50">
+          <Link to="/" className="flex items-center h-full py-2 md:py-2.5 z-50">
             <img 
               src="/logo.webp" 
               alt="The Pink Realty Logo" 
               width="180"
               height="94"
-              className="h-full w-auto object-contain transition-all duration-300 origin-left"
+              className="h-[72px] md:h-[84px] w-auto object-contain transition-all duration-300 origin-left"
             />
           </Link>
 
