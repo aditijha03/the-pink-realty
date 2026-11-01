@@ -46,7 +46,7 @@ export default function About() {
       </Head>
 
       <PageHero 
-        titleHTML="Our <em class='text-pink not-italic font-serif italic'>Story</em>: Property guidance you can trust."
+        titleHTML="Our <em class='text-pink not-italic font-serif italic'>STORY</em>: Property guidance you can trust."
         subtitle="Serving Mumbai and Navi Mumbai for over 10 years."
         bgImage="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80"
       />

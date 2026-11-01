@@ -274,7 +274,7 @@ export default function PropertyList() {
       </Head>
 
       <PageHero 
-        titleHTML="Our <em class='text-pink not-italic font-serif italic'>Signature</em> Collection."
+        titleHTML="Our <em class='text-pink not-italic font-serif italic'>SIGNATURE</em> Collection."
         subtitle="Discover curated residences and commercial spaces across Mumbai & Navi Mumbai."
         bgImage="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1920&q=80"
       />

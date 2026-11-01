@@ -78,7 +78,7 @@ export default function ContactUs() {
       </Head>
 
       <PageHero 
-        titleHTML="Let's <em class='text-pink not-italic font-serif italic'>Connect</em>."
+        titleHTML="Let's <em class='text-pink not-italic font-serif italic'>CONNECT</em>."
         subtitle="Our team is ready to answer your questions and guide you through your real estate journey."
         bgImage="https://images.unsplash.com/photo-1516387938699-a93567ec168e?w=1920&q=80"
       />

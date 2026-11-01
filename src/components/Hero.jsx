@@ -59,7 +59,7 @@ export default function Hero() {
                 Find a place<br/>that feels{' '}
               </span>
               <span className="hero-glow-word relative inline-block text-pink italic font-normal">
-                right.
+                RIGHT.
                 {/* Shimmer sweep every ~6s */}
                 <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/70 to-transparent opacity-0 dark:opacity-100 pointer-events-none animate-[heroshimmer_6s_ease-in-out_infinite]" aria-hidden="true" />
               </span>

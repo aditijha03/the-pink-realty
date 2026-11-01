@@ -53,6 +53,42 @@ export default function Services() {
       desc: "Whether you're looking for a temporary home or want to lease out your commercial space, we make the process smooth and secure.",
       benefits: ["Rigorous tenant screening process", "Drafting of watertight lease agreements", "Assistance with police verification", "Rent collection and maintenance support"],
       image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&w=800&q=80"
+    },
+    {
+      id: "new",
+      title: "New Projects",
+      desc: "Gain first-mover advantage with exclusive pre-launch offers, priority inventory access, and attractive builder payment schemes across premier upcoming developments.",
+      benefits: [
+        "Exclusive pre-launch pricing and early-bird investor offers",
+        "Direct partnerships with reputed, RERA-approved grade-A builders",
+        "Zero brokerage on developer-partnered primary sales",
+        "Priority unit selection, site tours, and construction milestone tracking"
+      ],
+      image: "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&w=800&q=80"
+    },
+    {
+      id: "invest",
+      title: "Investment Advisory",
+      desc: "Maximize your capital growth and rental yields with data-driven portfolio management, micro-market trend analysis, and strategic property acquisitions.",
+      benefits: [
+        "In-depth micro-market research & ROI projections",
+        "High capital appreciation and strong rental yield strategies",
+        "Strategic portfolio diversification across residential & commercial assets",
+        "Clear exit planning, resale assistance, and tax-efficiency consultation"
+      ],
+      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&w=800&q=80"
+    },
+    {
+      id: "nri",
+      title: "NRI Services",
+      desc: "Comprehensive on-ground real estate management for non-resident Indians. We ensure seamless property investments, leasing, maintenance, and legal compliance from afar.",
+      benefits: [
+        "Dedicated Relationship Manager for end-to-end local representation",
+        "Power of Attorney (PoA) guidance & complete documentation compliance",
+        "Rigorous tenant management, periodic video inspections, & rent remittance",
+        "FEMA regulations, NRE/NRO banking support, & repatriation guidance"
+      ],
+      image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&w=800&q=80"
     }
   ];
 
@@ -86,7 +122,7 @@ export default function Services() {
       </Head>
 
       <PageHero 
-        titleHTML="Our <em class='text-pink not-italic font-serif italic'>Craft</em>: Everything you need, one trusted partner."
+        titleHTML="Our <em class='text-pink not-italic font-serif italic'>CRAFT</em>: Everything you need, one trusted partner."
         subtitle="Comprehensive real estate solutions tailored to your unique requirements."
         bgImage="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=1920&q=80"
       />
@@ -96,7 +132,12 @@ export default function Services() {
         <div className="max-w-7xl mx-auto px-4 xl:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, idx) => (
-              <Reveal key={service.id} direction="up" delay={idx * 150}>
+              <Reveal
+                key={service.id}
+                direction="up"
+                delay={idx * 150}
+                className={service.id === 'refer' ? "md:col-span-2 md:mx-auto md:w-full md:max-w-md lg:max-w-none lg:col-span-1 lg:col-start-2" : ""}
+              >
                 <div className="bg-surface p-8 rounded-2xl shadow-soft h-full flex flex-col items-start border border-border hover:border-pink hover:shadow-[0_0_20px_var(--glow)] transition-all duration-300 hover:-translate-y-1.5">
                   <div className="bg-pink-light w-16 h-16 rounded-full flex items-center justify-center mb-6 text-pink border border-border">
                     {service.icon}
